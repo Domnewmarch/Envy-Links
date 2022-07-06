@@ -11,7 +11,7 @@ const blocks = [
     title: 'Insights',
     links: [
       { href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'An introduction to me 👨🏼‍💻' },
-      { href: 'https://www.instagram.com/envydigitalwebdesign/', text: 'Latest projects paint 🎨' }
+      { href: 'https://www.instagram.com/envydigitalwebdesign/', text: 'Latest projects 🎨' }
     ]
   }
 ]
