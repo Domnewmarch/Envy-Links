@@ -9,7 +9,9 @@ export default function Bio() {
       <p className="">
         Owner ~ <em className="font-semibold envy-blue">Envy Digital</em>
       </p>
-      <p className="">Frontend Developer ~ Parallax</p>
+      <p className="">
+        Frontend Developer ~ <em className="font-semibold envy-blue">Parallax</em>
+      </p>
 
       {/* quick contact links */}
       <BioContact />

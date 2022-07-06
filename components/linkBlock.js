@@ -4,7 +4,7 @@ const blocks = [
   {
     links: [
       { href: 'https://www.envydigital-webdesign.co.uk', text: 'Vist our website 🚀' },
-      { href: 'https://calendly.com/domenvy/30min', text: 'Lets grab a coffee  ☕' }
+      { href: 'https://calendly.com/domenvy/30min', text: 'Need a call or coffee?  ☕' }
     ]
   },
   {
@@ -21,7 +21,7 @@ export default function LinkContainer() {
     <>
       {blocks.map(block => (
         <div key={blocks.id} className="mt-8 w-full overflow-hidden">
-          <h6 className="my-2 w-full text-center font-semibold text-gray-400">{block.title}</h6>
+          <h6 className="my-2 w-full text-center font-semibold envy-blue">{block.title}</h6>
           {block.links && (
             <ul className="flex flex-col items-center space-y-4">
               {block.links.map(link => (
