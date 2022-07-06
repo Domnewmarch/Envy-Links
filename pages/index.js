@@ -1,5 +1,6 @@
 import Avatar from '../components/avatar'
 import Bio from '../components/bio'
+import Footer from '../components/footer'
 import LinkBlock from '../components/linkBlock'
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
           <Avatar />
           <Bio />
           <LinkBlock />
+          <Footer />
         </div>
       </div>
     </div>

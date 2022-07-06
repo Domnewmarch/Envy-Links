@@ -9,7 +9,10 @@ const blocks = [
   },
   {
     title: 'Insights',
-    links: [{ href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'An introduction of me 👨🏼‍💻' }]
+    links: [
+      { href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'An introduction of me 👨🏼‍💻' },
+      { href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'Latest projects 👨🏼‍💻' }
+    ]
   }
 ]
 
