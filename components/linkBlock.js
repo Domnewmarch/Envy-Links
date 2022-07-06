@@ -25,7 +25,7 @@ export default function LinkContainer() {
           {block.links && (
             <ul className="flex flex-col items-center space-y-4">
               {block.links.map(link => (
-                <Link key={links.id} card={link} />
+                <Link key={link.id} card={link} />
               ))}
             </ul>
           )}
