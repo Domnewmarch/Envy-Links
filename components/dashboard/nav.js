@@ -1,0 +1,34 @@
+/* This example requires Tailwind CSS v2.0+ */
+const navigation = [
+  { name: 'Links', href: '#' },
+  { name: 'Appearance', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Upgrade', href: '#' }
+]
+
+export default function Nav() {
+  return (
+    <header className="bg-white">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+        <div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+          <div className="flex items-center">
+            <div className="hidden ml-10 space-x-8 lg:block">
+              {navigation.map(link => (
+                <a key={link.name} href={link.href} className=" text-lg font-medium text-black hover:text-indigo-50">
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
+          {navigation.map(link => (
+            <a key={link.name} href={link.href} className="text-base font-medium text-black hover:text-indigo-50">
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
+  )
+}
