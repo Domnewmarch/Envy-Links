@@ -1,5 +1,6 @@
 import Avatar from '../components/avatar'
 import Bio from '../components/bio'
+import DesktopImage from '../components/desktopImage'
 import Footer from '../components/footer'
 import LinkBlock from '../components/linkBlock'
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
           <Footer />
         </div>
       </div>
+      <DesktopImage />
     </div>
   )
 }
