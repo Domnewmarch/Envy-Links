@@ -20,7 +20,7 @@ export default function LinkContainer() {
   return (
     <>
       {blocks.map(block => (
-        <div className="mt-8 w-full overflow-hidden">
+        <div key={blocks.title} className="mt-8 w-full overflow-hidden">
           <h6 className="my-2 w-full text-center font-semibold text-gray-400">{block.title}</h6>
           {block.links && (
             <ul className="flex flex-col items-center space-y-4">
