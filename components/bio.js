@@ -6,7 +6,7 @@ export default function Bio() {
       <h1 className="w-fit text-3xl">Dom Newmarch</h1>
 
       {/* Bio section / use react quill */}
-      <p className="">
+      <p className="dark:text-white">
         Owner ~ <em className="font-semibold envy-blue">Envy Digital</em>
       </p>
       <p className="">
