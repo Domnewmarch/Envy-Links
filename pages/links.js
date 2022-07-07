@@ -5,9 +5,9 @@ import NewLinkBlock from '../components/dashboard/newLinkBlock'
 import React, { useState } from 'react'
 
 export default function Links() {
-  const [components, setComponents] = useState(['Sample Component'])
+  const [components, setComponents] = useState(['Add Component'])
   function addComponent() {
-    setComponents([...components, 'Sample Component'])
+    setComponents([...components, 'Add Component'])
   }
 
   return (
