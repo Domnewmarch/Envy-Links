@@ -3,8 +3,8 @@ export default function ButtonPrimary(props) {
   return (
     <>
       <div className="flex justify-center">
-        <button onClick={props.onClick} type="button" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 mx-2 my-4">
-          {props.text}
+        <button onClick={props.onClick} type="button" className="h-14 items-center px-6 py-3 border border-transparent text-base font-medium rounded-3xl shadow-sm text-white envy-blue-bg hover:bg-blue-400 mx-2 my-4 flex">
+          <span>{props.text}</span>
         </button>
       </div>
     </>

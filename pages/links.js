@@ -11,7 +11,7 @@ export default function Links() {
   }
 
   return (
-    <div className=" bg-gray-200 h-screen">
+    <div className=" bg-neutral-100 h-screen">
       <Nav />
       <ButtonPrimary onClick={addComponent} text="Add new block" />
       {components.map((item, i) => (
