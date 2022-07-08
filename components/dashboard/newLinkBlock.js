@@ -15,7 +15,7 @@ export default function NewLinkBlock() {
         <div className=" bg-gray-300 pb-4">
           <ButtonPrimary onClick={addLink} text="Add link" />
           {links.map((item, i) => (
-            <NewLink />
+            <NewLink key={i} />
           ))}
         </div>
       </div>

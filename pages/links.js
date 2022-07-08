@@ -15,7 +15,7 @@ export default function Links() {
       <Nav />
       <ButtonPrimary onClick={addComponent} text="Add new block" />
       {components.map((item, i) => (
-        <NewLinkBlock />
+        <NewLinkBlock key={i} />
       ))}
     </div>
   )
