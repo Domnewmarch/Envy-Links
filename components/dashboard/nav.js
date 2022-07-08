@@ -1,7 +1,9 @@
+import { icons } from 'react-icons'
+
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
-  { name: 'Links', href: '#' },
-  { name: 'Appearance', href: '#' },
+  { name: 'Links', href: '/links' },
+  { name: 'Appearance', href: '/appearance' },
   { name: 'Settings', href: '#' },
   { name: 'Upgrade', href: '#' }
 ]
@@ -10,7 +12,10 @@ export default function Nav() {
   return (
     <header className="bg-white">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="w-full py-2 flex items-center justify-between border-b lg:border-none">
+        <div className="border-b py-2">
+          <img className="w-12" src="/img/envy-logo.png" alt="" />
+        </div>
+        <div className="w-full py-4 flex items-center justify-between border-b lg:border-none">
           <div className="flex items-center">
             <div>
               <span className="font-semibold mr-1 text-sm">My Link:</span>

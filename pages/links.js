@@ -3,6 +3,8 @@ import Nav from '../components/dashboard/nav'
 import NewLink from '../components/dashboard/newLink'
 import NewLinkBlock from '../components/dashboard/newLinkBlock'
 import React, { useState } from 'react'
+import NewButton from '../components/dashboard/newButton'
+import Draggable from 'react-draggable'
 
 export default function Links() {
   const [components, setComponents] = useState(['Add Component'])
@@ -13,7 +15,7 @@ export default function Links() {
   return (
     <div className=" bg-neutral-100 h-screen">
       <Nav />
-      <ButtonPrimary onClick={addComponent} text="Add new block" />
+      <NewButton onClick={addComponent} text="+ Block" />
       {components.map((item, i) => (
         <NewLinkBlock key={i} />
       ))}

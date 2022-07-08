@@ -16,7 +16,7 @@ export default function NewLinkBlock() {
         <div className=" bg-neutral-100 pb-4">
           <div className="flex items-center m-auto justify-center">
             <ButtonPrimary onClick={addLink} text="Add New Link" />
-            <ButtonIcons text="Explore" iconOne="/img/house.svg" iconTwo="/img/house.svg" iconThree="/img/house.svg" />
+            <ButtonIcons text="+ Media" iconOne="/img/house.svg" iconTwo="/img/house.svg" iconThree="/img/house.svg" />
           </div>
           {links.map((item, i) => (
             <NewLink key={i} />
