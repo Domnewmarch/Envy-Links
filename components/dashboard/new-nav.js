@@ -89,7 +89,7 @@ export default function NewNav() {
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium text-white">Dom Newmarch</div>
-                  <div className="text-sm font-medium text-gray-400">dom@envydigital.co.uk</div>
+                  <div className="text-sm font-medium text-gray-400">dom@parall.ax</div>
                 </div>
                 <button type="button" className="ml-auto flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                   <span className="sr-only">View notifications</span>
