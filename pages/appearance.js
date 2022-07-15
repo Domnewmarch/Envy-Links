@@ -1,5 +1,7 @@
 import Nav from '../components/dashboard/nav'
 import React, { useState } from 'react'
+import NewNav from '../components/dashboard/new-nav'
+import EditBio from '../components/dashboard/edit-bio'
 
 export default function Links() {
   const [components, setComponents] = useState(['Add Component'])
@@ -9,7 +11,8 @@ export default function Links() {
 
   return (
     <div className=" bg-neutral-100 h-screen">
-      <Nav />
+      <NewNav />
+      <EditBio />
     </div>
   )
 }

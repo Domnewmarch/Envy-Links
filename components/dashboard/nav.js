@@ -3,7 +3,7 @@ import { icons } from 'react-icons'
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
   { name: 'Links', href: '/links' },
-  { name: 'Appearance', href: '/appearance' },
+  { name: 'Appearance', href: '/appearance ' },
   { name: 'Settings', href: '#' },
   { name: 'Upgrade', href: '#' }
 ]

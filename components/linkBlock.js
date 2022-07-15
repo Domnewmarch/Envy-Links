@@ -3,7 +3,7 @@ import Link from './link' // block data
 const blocks = [
   {
     links: [
-      { href: 'https://www.envydigital-webdesign.co.uk', text: 'Vist our website 🚀' },
+      { href: 'https://www.parall.ax', text: 'Vist our website 🚀' },
       { href: 'https://calendly.com/domenvy/30min', text: 'Need a call or coffee?  ☕' }
     ]
   },
