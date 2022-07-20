@@ -10,6 +10,7 @@ export default function Bio() {
         Owner ~ <em className="font-semibold envy-blue">Envy Digital</em>
       </p> */}
       <p className="">
+        Owner ~ <em className="font-semibold envy-blue">Envy Digital</em>
         Frontend Developer ~ <em className="font-semibold envy-blue">Parallax</em>
       </p>
 
