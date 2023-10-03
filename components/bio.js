@@ -7,15 +7,12 @@ export default function Bio() {
 
       {/* Bio section / use react quill */}
       <p className="dark:text-white">
-        Owner ~
+        Founder ~
         <em className="font-semibold envy-blue">
           <a className="font-semibold envy-blue" href="https://www.envydigital-webdesign.co.uk">
             Envy Digital
           </a>
         </em>
-      </p>
-      <p className="">
-        Frontend Developer ~ <em className="font-semibold envy-blue">Parallax</em>
       </p>
 
       {/* quick contact links */}
