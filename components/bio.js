@@ -3,14 +3,14 @@ import BioContact from './bioContact';
 
 // Define contact details array
 const contactDetails = [
-  { name: 'Dom Newmarch', mobile: '07501960691' },
+  { name: 'Dom Newmarch', mobile: '07501960691', email: 'dom@envydigital.co.uk' },
 ];
 
 // Function to handle saving contact details
 function saveContactsToPhone() {
   // Iterate over each contact and prompt user to save
   contactDetails.forEach(contact => {
-    const contactString = `BEGIN:VCARD\nVERSION:3.0\nFN:${contact.name}\nTEL:${contact.mobile}\nEND:VCARD`;
+    const contactString = `BEGIN:VCARD\nVERSION:3.0\nFN:${contact.name}\nTEL:${contact.mobile}\nEMAIL:${contact.email}\nEND:VCARD`;
 
     // Create an anchor element with the contact data as a data URI
     const link = document.createElement('a');
