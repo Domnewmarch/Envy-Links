@@ -1,4 +1,4 @@
-import Link from './link' // block data
+import Link from './link'; // block data
 
 const blocks = [
   {
@@ -8,10 +8,10 @@ const blocks = [
     ]
   },
   {
-    title: '',
+    title: 'Insights',
     links: [
-      // { href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'An introduction to me 👨🏼‍💻' },
-      // { href: 'https://www.instagram.com/envydigitalwebdesign/', text: 'Latest projects 🎨' }
+      { href: 'https://www.linkedin.com/in/dom-newmarch-a554b697/', text: 'An introduction to me 👨🏼‍💻' },
+      { href: 'https://www.instagram.com/envydigitalwebdesign/', text: 'Latest projects 🎨' }
     ]
   }
 ]
