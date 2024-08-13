@@ -1,25 +1,34 @@
-import ButtonPrimary from '../components/dashboard/button'
-import Nav from '../components/dashboard/nav'
-import NewLink from '../components/dashboard/newLink'
-import NewLinkBlock from '../components/dashboard/newLinkBlock'
-import React, { useState } from 'react'
-import NewButton from '../components/dashboard/newButton'
-import Draggable from 'react-draggable'
-import NewNav from '../components/dashboard/new-nav'
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import NewNav from '../components/dashboard/new-nav';
+import NewLinkBlock from '../components/dashboard/newLinkBlock';
+import { auth } from '../firebase';
 
 export default function Links() {
-  const [components, setComponents] = useState(['Add Component'])
-  function addComponent() {
-    setComponents([...components, 'Add Component'])
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const user = auth.currentUser;
+      if (user) {
+        setIsAuthenticated(true); // User is logged in
+      } else {
+        router.push('/login'); // Redirect to login if user is not authenticated
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
+  if (!isAuthenticated) {
+    return null; // or a loading spinner, or redirecting logic
   }
 
   return (
-    <div className=" bg-neutral-100 h-screen">
+    <div className="bg-neutral-100 h-screen">
       <NewNav />
-      <NewButton onClick={addComponent} text="+ Block" />
-      {components.map((item, i) => (
-        <NewLinkBlock key={i} />
-      ))}
+      <NewLinkBlock />
     </div>
-  )
+  );
 }

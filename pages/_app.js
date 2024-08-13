@@ -1,11 +1,35 @@
-import '../styles/globals.css'
-import { ThemeProvider } from 'next-themes'
-function MyApp({ Component, pageProps }) {
-  return (
-    <ThemeProvider attribute="class">
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Font Awesome CSS
+import { onAuthStateChanged } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../firebase';
+import '../styles/globals.css';
+
+// Create a Context for Auth
+const AuthContext = createContext();
+
+export function useAuth() {
+  return useContext(AuthContext);
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }) {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    // Cleanup subscription on unmount
+    return unsubscribe;
+  }, []);
+
+  const value = {
+    currentUser
+  };
+
+  return <AuthContext.Provider value={value}>{loading ? <div>Loading...</div> : <Component {...pageProps} />}</AuthContext.Provider>;
+}
+
+export default MyApp;

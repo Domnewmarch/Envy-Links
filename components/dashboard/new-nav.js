@@ -1,21 +1,43 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { browserLocalPersistence, getAuth, onAuthStateChanged, setPersistence } from 'firebase/auth';
+import { Fragment, useEffect, useState } from 'react';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 const navigation = [
   { name: 'Links', href: '/links' },
-  { name: 'Appearance', href: '/appearance ' },
-  { name: 'Settings', href: '#' },
-  { name: 'Analytics', href: '#' },
-  { name: 'Upgrade', href: '#' }
-]
+  { name: 'Profile', href: '/appearance' }
+];
+
+// Determine the base URL based on the environment
+const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://domnewmarch-links.vercel.app';
 
 export default function NewNav() {
+  const [userUid, setUserUid] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    setPersistence(auth, browserLocalPersistence)
+      .then(() => {
+        onAuthStateChanged(auth, user => {
+          if (user) {
+            setUserUid(user.uid);
+          } else {
+            setUserUid(null);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error setting persistence: ', error);
+      });
+  }, []);
+
+  const profileUrl = userUid ? `${baseUrl}/${userUid}` : baseUrl;
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -30,11 +52,6 @@ export default function NewNav() {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex items-center">
-                  <button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
@@ -45,20 +62,6 @@ export default function NewNav() {
                     </div>
                     <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
                       <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Your Profile
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
@@ -91,30 +94,19 @@ export default function NewNav() {
                   <div className="text-base font-medium text-white">Dom Newmarch</div>
                   <div className="text-sm font-medium text-gray-400">dom@parall.ax</div>
                 </div>
-                <button type="button" className="ml-auto flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
               </div>
               <div className="mt-3 px-2 space-y-1">
-                <Disclosure.Button as="a" href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button as="a" href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
-                  Settings
-                </Disclosure.Button>
                 <Disclosure.Button as="a" href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
                   Sign out
                 </Disclosure.Button>
               </div>
             </div>
           </Disclosure.Panel>
-          <div className=" w-11/12 m-auto py-4 flex items-center justify-between border-b">
+          <div className="w-11/12 m-auto py-4 flex items-center justify-between border-b">
             <div className="flex items-center">
               <div className="">
-                <span className="font-semibold mr-1 text-sm">My Link:</span>
-                <a className="underline envy-blue" href="https://domnewmarch-links.vercel.app/">
-                  domnewmarch-links.vercel.app
+                <a className="underline envy-blue overflow-auto" href={profileUrl}>
+                  View your link page
                 </a>
               </div>
             </div>
@@ -131,5 +123,5 @@ export default function NewNav() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
